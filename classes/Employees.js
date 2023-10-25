@@ -8,10 +8,15 @@ class Employees {
     this.#salary = salary;
     this.position = position;
     this.#isHired = true;
+    this.target = 0;
+    this.performance = 0;
     Employees.#allEmployees.push(this);
   }
   getSalary() {
     return this.#salary;
+  }
+  setTarget(num) {
+    this.target = num;
   }
   static getEmployees() {
     return Employees.#allEmployees;
@@ -49,11 +54,34 @@ class Employees {
   getPerformance() {
     return this.#performanceAvg;
   }
-  setPerformance(number) {
-    if (isNaN(number)) {
+  setPerformance(num) {
+    this.performance += num;
+  }
+  setPerformanceAvg() {
+    if (isNaN((this.performance / this.target) * 100)) {
       throw new Error("Please enter numerical value between 1-100");
     } else {
-      this.#performanceAvg = number;
+      this.#performanceAvg = (this.performance / this.target) * 100;
+      console.log(`${this.#performanceAvg} %`);
+    }
+  }
+  employeeReview() {
+    if (this.#performanceAvg > 100) {
+      console.log(
+        `${this.name} is performing highly, bonus and promotion recommended`
+      );
+    } else if (this.#performanceAvg >= 90) {
+      console.log(`${this.name} is performing well, bonus share recommended`);
+    } else if (this.#performanceAvg >= 80) {
+      console.log(
+        `${this.name} is performing average, additional training recommended`
+      );
+    } else if (this.#performanceAvg >= 60) {
+      console.log(`${this.name} is performing poorly, intervention required`);
+    } else if (this.#performanceAvg < 60) {
+      console.log(
+        `${this.name} is performing very poorly, seek HR advice and support for them`
+      );
     }
   }
 }

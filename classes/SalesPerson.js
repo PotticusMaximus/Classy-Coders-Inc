@@ -3,7 +3,6 @@ const { Employees } = require("./Employees");
 class SalesPerson extends Employees {
   #totalSales;
   constructor(name, position, salary, clients = []) {
-    //
     super(name, position, salary);
     this.#totalSales = 0;
     this.clients = clients;
@@ -11,6 +10,7 @@ class SalesPerson extends Employees {
   getSalesNumber() {
     return this.#totalSales;
   }
+
   findClient(client) {
     let result;
     let found = false;
@@ -30,7 +30,15 @@ class SalesPerson extends Employees {
     this.#totalSales += amount;
   }
 }
-
+const malik = new SalesPerson("Malik", "Enterprise Sale Associate", 90000, [
+  "Vine",
+  "MySpace",
+  "Shutterfly",
+]);
+malik.setTarget(50);
+malik.setPerformance(60);
+malik.setPerformanceAvg();
+malik.employeeReview();
 module.exports = {
   SalesPerson,
 };
