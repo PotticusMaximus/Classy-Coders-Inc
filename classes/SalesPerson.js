@@ -13,9 +13,9 @@ class SalesPerson extends Employees {
   }
   findClient(client) {
     let result = "";
-    for (let i = 0; i < clients.length; i++) {
-      if (clients[i] == client) {
-        result = clients[i];
+    for (let i = 0; i < this.clients.length; i++) {
+      if (this.clients[i] == client) {
+        result = this.clients[i];
       }
     }
     return result;
