@@ -23,7 +23,11 @@ class Employees {
     return count;
   }
   setSalary(amount) {
-    this.#salary = amount;
+    if (amount < 0) {
+      throw new Error("Salary cannot be negative");
+    } else {
+      this.#salary = amount;
+    }
   }
   getStatus() {
     return this.#isHired;

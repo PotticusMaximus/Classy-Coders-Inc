@@ -11,6 +11,15 @@ class SalesPerson extends Employees {
   getSalesNumber() {
     return this.#totalSales;
   }
+  findClient(client) {
+    let result = "";
+    for (let i = 0; i < clients.length; i++) {
+      if (clients[i] == client) {
+        result = clients[i];
+      }
+    }
+    return result;
+  }
   makeSale(amount) {
     this.#totalSales += amount;
   }
