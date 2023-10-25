@@ -41,6 +41,10 @@ class Employees {
       this.#isHired = false;
     }
   }
+  promote(position, salary) {
+    this.position = position;
+    this.#salary = salary;
+  }
 }
 
 module.exports = {
