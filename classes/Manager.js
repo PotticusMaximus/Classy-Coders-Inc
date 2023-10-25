@@ -22,13 +22,14 @@ class Manager extends Employees {
   }
   promote(position, salary, additional = false) {
     if (additional === true) {
-      this.position = position;
-      return "Promotion approved, submit request to Senior Management for authority to increase salary";
+      super.promote(position, salary);
+      console.log("Promotion approved");
     } else if (additional === false) {
       throw new Error("Additional criteria for promotion not met");
     }
   }
 }
+
 module.exports = {
   Manager,
 };

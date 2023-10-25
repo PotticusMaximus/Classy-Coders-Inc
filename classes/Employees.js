@@ -1,6 +1,7 @@
 class Employees {
   #salary;
   #isHired;
+  #performanceAvg = 0;
   static #allEmployees = [];
   constructor(name, position, salary) {
     this.name = name;
@@ -44,6 +45,16 @@ class Employees {
   promote(position, salary) {
     this.position = position;
     this.#salary = salary;
+  }
+  getPerformance() {
+    return this.#performanceAvg;
+  }
+  setPerformance(number) {
+    if (isNaN(number)) {
+      throw new Error("Please enter numerical value between 1-100");
+    } else {
+      this.#performanceAvg = number;
+    }
   }
 }
 
